@@ -1,0 +1,215 @@
+- !!python/object:components.Radio
+  data: '%.@.[884104327,"What age group do you belong to?",null,2,[[270483802,[["17-20",null,null,null,false],["21-24",null,null,null,false],["25-28",null,null,null,false]],false,[],[],null,null,null,false,null,[null,[]]]],null,null,null,[]],"i1","i2","i3",false]'
+  isvertical: true
+  options:
+  - 17-20
+  - 21-24
+  - 25-28
+  q: What age group do you belong to?
+- !!python/object:components.Radio
+  data: '%.@.[655630634,"Please identify your gender",null,2,[[333160878,[["Female",null,null,null,false],["Male",null,null,null,false],["Prefer
+    not to say",null,null,null,false],["Non-binary",null,null,null,false],["Gender
+    fluid",null,null,null,false],["",null,null,null,true]],false,[],[],null,null,null,false,null,[null,[]]]],null,null,null,[]],"i14","i15","i16",false]'
+  isvertical: true
+  options:
+  - Female
+  - Male
+  - Prefer not to say
+  - Non-binary
+  - Gender fluid
+  - ''
+  q: Please identify your gender
+- !!python/object:components.Radio
+  data: '%.@.[1000254083,"Are you currently studying in Pakistan?",null,2,[[1430787290,[["Yes",null,null,null,false],["No",null,null,null,false]],false,[],[],null,null,null,false,null,[null,[]]]],null,null,null,[]],"i36","i37","i38",false]'
+  isvertical: true
+  options:
+  - 'Yes'
+  - 'No'
+  q: Are you currently studying in Pakistan?
+- !!python/object:components.Radio
+  data: '%.@.[2078674845,"What degree are you currently pursuing?",null,2,[[59610361,[["Bachelor''s",null,null,null,false],["Master''s",null,null,null,false],["Other",null,null,null,false]],false,[],[],null,null,null,false,null,[null,[]]]],null,null,null,[]],"i46","i47","i48",false]'
+  isvertical: true
+  options:
+  - Bachelor's
+  - Master's
+  - Other
+  q: What degree are you currently pursuing?
+- !!python/object:components.Radio
+  data: '%.@.[390429972,"I want to return Ali''s favour as soon as possible so I do
+    not feel indebted to him. ",null,5,[[2098083069,[["1"],["2"],["3"],["4"],["5"]],false,["Strongly
+    Disagree","Strongly Agree"],[],null,null,null,null,null,[null,[]]]],null,null,null,[]],"i3","i4","i5",false]'
+  isvertical: false
+  options:
+  - '1'
+  - '2'
+  - '3'
+  - '4'
+  - '5'
+  q: 'I want to return Ali''s favour as soon as possible so I do not feel indebted
+    to him. '
+- !!python/object:components.Radio
+  data: '%.@.[276533954,"When I do something extra for my peers, I normally expect
+    them to return any favours I do for them right away.",null,5,[[396271453,[["1"],["2"],["3"],["4"],["5"]],false,["Strongly
+    Disagree","Strongly Agree"],[],null,null,null,null,null,[null,[]]]],null,null,null,[]],"i7","i8","i9",false]'
+  isvertical: false
+  options:
+  - '1'
+  - '2'
+  - '3'
+  - '4'
+  - '5'
+  q: When I do something extra for my peers, I normally expect them to return any
+    favours I do for them right away.
+- !!python/object:components.Radio
+  data: '%.@.[1788597247,"When Ali needs help, I will also help him for one hour to
+    finish one assignment. ",null,5,[[810620070,[["1"],["2"],["3"],["4"],["5"]],false,["Strongly
+    Disagree","Strongly Agree"],[],null,null,null,null,null,[null,[]]]],null,null,null,[]],"i13","i14","i15",false]'
+  isvertical: false
+  options:
+  - '1'
+  - '2'
+  - '3'
+  - '4'
+  - '5'
+  q: 'When Ali needs help, I will also help him for one hour to finish one assignment. '
+- !!python/object:components.Radio
+  data: '%.@.[470164879,"When exchanging academic assistance, I pay attention to what
+    I received relative to what I offered.",null,5,[[1862720679,[["1"],["2"],["3"],["4"],["5"]],false,["Strongly
+    Disagree","Strongly Agree"],[],null,null,null,null,null,[null,[]]]],null,null,null,[]],"i17","i18","i19",false]'
+  isvertical: false
+  options:
+  - '1'
+  - '2'
+  - '3'
+  - '4'
+  - '5'
+  q: When exchanging academic assistance, I pay attention to what I received relative
+    to what I offered.
+- !!python/object:components.Radio
+  data: '%.@.[550735309,"I am more concerned about helping Ali finish his assignment
+    than completing mine. ",null,5,[[1291047057,[["1"],["2"],["3"],["4"],["5"]],false,["Strongly
+    Disagree","Strongly Agree"],[],null,null,null,null,null,[null,[]]]],null,null,null,[]],"i23","i24","i25",false]'
+  isvertical: false
+  options:
+  - '1'
+  - '2'
+  - '3'
+  - '4'
+  - '5'
+  q: 'I am more concerned about helping Ali finish his assignment than completing
+    mine. '
+- !!python/object:components.Radio
+  data: '%.@.[2051862099,"If necessary, I will put Ali''s need to complete the assignment
+    above my own.",null,5,[[753066880,[["1"],["2"],["3"],["4"],["5"]],false,["Strongly
+    Disagree","Strongly Agree"],[],null,null,null,null,null,[null,[]]]],null,null,null,[]],"i27","i28","i29",false]'
+  isvertical: false
+  options:
+  - '1'
+  - '2'
+  - '3'
+  - '4'
+  - '5'
+  q: If necessary, I will put Ali's need to complete the assignment above my own.
+- !!python/object:components.Radio
+  data: '%.@.[1021899760,"While exchanging academic assistance, my peers and I try
+    to do what is best for each other. ",null,5,[[1751376679,[["1"],["2"],["3"],["4"],["5"]],false,["Strongly
+    Disagree","Strongly Agree"],[],null,null,null,null,null,[null,[]]]],null,null,null,[]],"i31","i32","i33",false]'
+  isvertical: false
+  options:
+  - '1'
+  - '2'
+  - '3'
+  - '4'
+  - '5'
+  q: 'While exchanging academic assistance, my peers and I try to do what is best
+    for each other. '
+- !!python/object:components.Radio
+  data: '%.@.[1151839207,"While exchanging academic assistance, my peers and I try
+    to do what is best for our own self interests. ",null,5,[[6556647,[["1"],["2"],["3"],["4"],["5"]],false,["Strongly
+    Disagree","Strongly Agree"],[],null,null,null,null,null,[null,[]]]],null,null,null,[]],"i35","i36","i37",false]'
+  isvertical: false
+  options:
+  - '1'
+  - '2'
+  - '3'
+  - '4'
+  - '5'
+  q: 'While exchanging academic assistance, my peers and I try to do what is best
+    for our own self interests. '
+- !!python/object:components.Radio
+  data: '%.@.[1353710515,"I can''t wait for Ahmad to need my help one day, so that
+    I can leave him hanging just like he did. ",null,5,[[1487416665,[["1"],["2"],["3"],["4"],["5"]],false,["Strongly
+    Disagree","Strongly Agree"],[],null,null,null,null,null,[null,[]]]],null,null,null,[]],"i3","i4","i5",false]'
+  isvertical: false
+  options:
+  - '1'
+  - '2'
+  - '3'
+  - '4'
+  - '5'
+  q: 'I can''t wait for Ahmad to need my help one day, so that I can leave him hanging
+    just like he did. '
+- !!python/object:components.Radio
+  data: '%.@.[1688927639,"I expect my peers to immediately deny me a favor if I have
+    refused to help them recently instead of seeking retribution in the future.",null,5,[[2141723638,[["1"],["2"],["3"],["4"],["5"]],false,["Strongly
+    Disagree","Strongly Agree"],[],null,null,null,null,null,[null,[]]]],null,null,null,[]],"i7","i8","i9",false]'
+  isvertical: false
+  options:
+  - '1'
+  - '2'
+  - '3'
+  - '4'
+  - '5'
+  q: I expect my peers to immediately deny me a favor if I have refused to help them
+    recently instead of seeking retribution in the future.
+- !!python/object:components.Radio
+  data: '%.@.[1945820894,"I will also refuse to help Ahmad twice because he refused
+    to help me twice. ",null,5,[[1925632716,[["1"],["2"],["3"],["4"],["5"]],false,["Strongly
+    Disagree","Strongly Agree"],[],null,null,null,null,null,[null,[]]]],null,null,null,[]],"i13","i14","i15",false]'
+  isvertical: false
+  options:
+  - '1'
+  - '2'
+  - '3'
+  - '4'
+  - '5'
+  q: 'I will also refuse to help Ahmad twice because he refused to help me twice. '
+- !!python/object:components.Radio
+  data: '%.@.[461916928,"When someone refuses to exchange academic assistance, I pay
+    attention to the size of the favor denied and intend to deny one of similar size.",null,5,[[699535772,[["1"],["2"],["3"],["4"],["5"]],false,["Strongly
+    Disagree","Strongly Agree"],[],null,null,null,null,null,[null,[]]]],null,null,null,[]],"i17","i18","i19",false]'
+  isvertical: false
+  options:
+  - '1'
+  - '2'
+  - '3'
+  - '4'
+  - '5'
+  q: When someone refuses to exchange academic assistance, I pay attention to the
+    size of the favor denied and intend to deny one of similar size.
+- !!python/object:components.Radio
+  data: '%.@.[1277602001,"I am more concerned about helping Ahmad finish his assignment
+    than completing mine. ",null,5,[[2007493839,[["1"],["2"],["3"],["4"],["5"]],false,["Strongly
+    Disagree","Strongly Agree"],[],null,null,null,null,null,[null,[]]]],null,null,null,[]],"i23","i24","i25",false]'
+  isvertical: false
+  options:
+  - '1'
+  - '2'
+  - '3'
+  - '4'
+  - '5'
+  q: 'I am more concerned about helping Ahmad finish his assignment than completing
+    mine. '
+- !!python/object:components.Radio
+  data: '%.@.[76926257,"If necessary, I will put Ahmad''s need to complete the assignment
+    above my own by helping him.",null,5,[[1939906729,[["1"],["2"],["3"],["4"],["5"]],false,["Strongly
+    Disagree","Strongly Agree"],[],null,null,null,null,null,[null,[]]]],null,null,null,[]],"i27","i28","i29",false]'
+  isvertical: false
+  options:
+  - '1'
+  - '2'
+  - '3'
+  - '4'
+  - '5'
+  q: If necessary, I will put Ahmad's need to complete the assignment above my own
+    by helping him.

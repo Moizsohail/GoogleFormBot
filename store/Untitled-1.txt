@@ -1,0 +1,121 @@
+[
+    {
+      q: 'What age group do you belong to?',
+      options: ['17-20', '21-24', '25-28'],
+      conditions: [
+        {
+          result: [25, 50, 25],
+        },
+      ],
+    },
+    {
+      q: 'Please identify your gender',
+      options: [
+        'Female',
+        'Male',
+        'Prefer not to say',
+        'Non-binary',
+        'Gender fluid',
+        '',
+      ],
+      conditions: [
+        {
+          result: [40, 40, 5, 3, 2],
+        },
+      ],
+    },
+    {
+      q: 'Are you currently studying in Pakistan?',
+      options: ['Yes', 'No'],
+      conditions: [
+        {
+          result: [50, 50],
+        },
+      ],
+    },
+    {
+      q: 'What degree are you currently pursuing?',
+      options: ["Bachelor's", "Master's", 'Other'],
+      conditions: [
+        {
+          result: [85, 15, 0],
+        },
+      ],
+    },
+    {
+      q: "I want to return Ali's favour as soon as possible so I do not feel indebted to him. ",
+      options: ['1', '2', '3', '4', '5'],
+      conditions: [
+        {
+          variable_id: 'Are you currently studying in Pakistan?',
+          lambda: (x) => x === 'Yes',
+          result: [5, 30, 45, 5, 15],
+        },
+        {
+          result: [5, 10, 5, 30, 50],
+        },
+      ],
+    },
+    {
+      q: 'When I do something extra for my peers, I normally expect them to return any favours I do for them right away.',
+      options: ['1', '2', '3', '4', '5'],
+      conditions: [
+        {
+          variable_id: 'Are you currently studying in Pakistan?',
+          lambda: (x) => x === 'Yes',
+          result: [5, 30, 45, 5, 15],
+        },
+        {
+          result: [5, 10, 5, 30, 50],
+        },
+      ],
+    },
+    {
+      q: 'When Ali needs help, I will also help him for one hour to finish one assignment. ',
+      options: ['1', '2', '3', '4', '5'],
+    },
+    {
+      q: 'When exchanging academic assistance, I pay attention to what I received relative to what I offered.',
+      options: ['1', '2', '3', '4', '5'],
+    },
+    {
+      q: 'I am more concerned about helping Ali finish his assignment than completing mine. ',
+      options: ['1', '2', '3', '4', '5'],
+    },
+    {
+      q: "If necessary, I will put Ali's need to complete the assignment above my own.",
+      options: ['1', '2', '3', '4', '5'],
+    },
+    {
+      q: 'While exchanging academic assistance, my peers and I try to do what is best for each other. ',
+      options: ['1', '2', '3', '4', '5'],
+    },
+    {
+      q: 'While exchanging academic assistance, my peers and I try to do what is best for our own self interests. ',
+      options: ['1', '2', '3', '4', '5'],
+    },
+    {
+      q: "I can't wait for Ahmad to need my help one day, so that I can leave him hanging just like he did. ",
+      options: ['1', '2', '3', '4', '5'],
+    },
+    {
+      q: 'I expect my peers to immediately deny me a favor if I have refused to help them recently instead of seeking retribution in the future.',
+      options: ['1', '2', '3', '4', '5'],
+    },
+    {
+      q: 'I will also refuse to help Ahmad twice because he refused to help me twice. ',
+      options: ['1', '2', '3', '4', '5'],
+    },
+    {
+      q: 'When someone refuses to exchange academic assistance, I pay attention to the size of the favor denied and intend to deny one of similar size.',
+      options: ['1', '2', '3', '4', '5'],
+    },
+    {
+      q: 'I am more concerned about helping Ahmad finish his assignment than completing mine. ',
+      options: ['1', '2', '3', '4', '5'],
+    },
+    {
+      q: "If necessary, I will put Ahmad's need to complete the assignment above my own by helping him.",
+      options: ['1', '2', '3', '4', '5'],
+    },
+  ],
