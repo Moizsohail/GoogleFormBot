@@ -15,7 +15,7 @@
         <p class="text-caption text-center">Click above to edit</p>
       </div>
       <div class="mt-12">
-        <v-row class="pa-0">
+        <v-row class="pa-0 mainrow">
           <v-col cols="12" sm="6" class="pr-1">
             <v-expansion-panels v-model="current">
               <v-expansion-panel
@@ -437,6 +437,11 @@ export default {
 }
 .upright i {
   transform: unset !important;
+}
+@media only screen and (max-width: 600px) {
+  .mainrow {
+    flex-direction: column-reverse;
+  }
 }
 </style>
 <style>
