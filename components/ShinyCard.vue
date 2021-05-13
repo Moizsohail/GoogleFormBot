@@ -104,8 +104,20 @@ h2:after {
 .news {
   flex-flow: row wrap;
 }
-.cards .card,
-.news .card {
+@media only screen and (max-width: 800px) {
+  .cards .card {
+    width: 280px !important;
+    height: 170px !important;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .cards .card {
+    width: 90vw !important;
+    height: auto !important;
+    aspect-ratio: 1.9;
+  }
+}
+.cards .card {
   width: 370px;
   height: 200px;
   overflow: hidden;

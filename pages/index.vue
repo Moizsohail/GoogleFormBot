@@ -11,7 +11,13 @@
             <v-btn color="primary" @click="$router.push('editor')"
               >Get Started</v-btn
             >
-            <v-btn depressed text outlined color="primary" class="ml-1">
+            <v-btn
+              depressed
+              text
+              outlined
+              color="primary"
+              class="ml-1 tutorialbtn"
+            >
               Tutorials</v-btn
             >
           </v-row>
@@ -122,5 +128,22 @@ export default {
   top: -10px;
   left: -20px;
   border-radius: 50%;
+}
+@media only screen and (max-width: 600px) {
+  #floating0,
+  #floating2,
+  #floating3,
+  #floating4 {
+    display: none;
+  }
+  #floating1 {
+    top: 120px;
+  }
+  .aestheticCircle {
+    top: 60px;
+  }
+  .tutorialbtn {
+    margin: 10px 0px !important;
+  }
 }
 </style>
