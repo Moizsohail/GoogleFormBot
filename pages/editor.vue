@@ -9,9 +9,10 @@
         filled
         suffix=".csv"
       />
-      <p class="text-h3 text-center" @click="openEditor" v-else>
-        {{ csvname }}.csv
-      </p>
+      <div v-else>
+        <p class="text-h3 text-center" @click="openEditor">{{ csvname }}.csv</p>
+        <p class="text-caption text-center">Click above to edit</p>
+      </div>
       <div class="mt-12">
         <v-row class="pa-0">
           <v-col cols="6" class="pr-1">
