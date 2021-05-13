@@ -4,7 +4,8 @@
       <v-text-field
         v-if="nameEditor"
         v-model="temp"
-        @keyup="newName"
+        @keyup="enterNewName"
+        @blur="newName"
         label="Press Enter"
         filled
         suffix=".csv"
@@ -351,11 +352,15 @@ export default {
       this.nameEditor = true
       this.temp = this.csvname
     },
-    newName(x) {
+    enterNewName(x) {
       if (x.key === 'Enter') {
         this.csvname = this.temp
         this.nameEditor = false
       }
+    },
+    newName(x) {
+      this.csvname = this.temp
+      this.nameEditor = false
     },
     deleteQ(i) {
       this.$store.commit('deleteQuestion', { dataIndex: i })
