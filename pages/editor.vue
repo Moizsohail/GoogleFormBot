@@ -15,7 +15,7 @@
       </div>
       <div class="mt-12">
         <v-row class="pa-0">
-          <v-col cols="6" class="pr-1">
+          <v-col cols="12" sm="6" class="pr-1">
             <v-expansion-panels v-model="current">
               <v-expansion-panel
                 active
@@ -155,7 +155,7 @@
               </v-expansion-panel>
             </v-expansion-panels>
           </v-col>
-          <v-col cols="6" class="pr-1"
+          <v-col cols="12" sm="6" class="pr-1"
             ><v-card>
               <v-container class="pt-6 pl-5 pr-5">
                 <v-row>
@@ -180,7 +180,11 @@
                       <p class="text-body-2">
                         Current Question {{ this.current + 1 }}
                         <client-only>
-                          <pie-chart :chartData="chartData"></pie-chart>
+                          <pie-chart :chartData="pieData"></pie-chart>
+                          <bar-chart
+                            :chartData="barData"
+                            :options="barChartOptions"
+                          ></bar-chart>
                         </client-only>
                       </p>
                     </v-container>
@@ -213,6 +217,9 @@ import DateRangePicker from '~/components/DateRangePicker.vue'
 export default {
   data() {
     return {
+      barChartOptions: {
+        scales: { yAxes: [{ ticks: { beginAtZero: true } }] },
+      },
       rules: {
         required: (value) => !!value || 'Required.',
         numeric: (value) => {
@@ -238,7 +245,7 @@ export default {
   components: { Percentages, DateRangePicker },
 
   computed: {
-    chartData() {
+    pieData() {
       if (typeof this.current === 'number') {
         const condI =
           typeof this.currentActiveCondition === 'number'
@@ -261,6 +268,53 @@ export default {
                 '#ff7c43',
                 '#ffa600',
               ],
+            },
+          ],
+        }
+      }
+    },
+    pieData() {
+      if (typeof this.current === 'number') {
+        const condI =
+          typeof this.currentActiveCondition === 'number'
+            ? this.currentActiveCondition
+            : 0
+        return {
+          labels: this.$store.state.data[this.current].options,
+          datasets: [
+            {
+              label: 'Dataset 1',
+              data: this.$store.state.data[this.current].conditions[condI]
+                .result,
+              backgroundColor: [
+                '#003f5c',
+                '#2f4b7c',
+                '#665191',
+                '#a05195',
+                '#d45087',
+                '#f95d6a',
+                '#ff7c43',
+                '#ffa600',
+              ],
+            },
+          ],
+        }
+      }
+    },
+    barData() {
+      if (typeof this.current === 'number') {
+        const condI =
+          typeof this.currentActiveCondition === 'number'
+            ? this.currentActiveCondition
+            : 0
+        return {
+          labels: this.$store.state.data[this.current].options,
+          datasets: [
+            {
+              label: 'Distribution',
+              data: this.$store.state.data[this.current].conditions[condI]
+                .result,
+              backgroundColor: '#003f5c',
             },
           ],
         }
@@ -336,7 +390,7 @@ export default {
       if (this.$refs.form.validate()) {
         this.$store.commit('generate')
         const json = this.$store.state.generated
-        const fields = Object.keys(json[0])
+        let fields = Object.keys(json[0])
         // console.log(fields)
         var replacer = function (key, value) {
           return value === null ? '' : value
@@ -349,7 +403,7 @@ export default {
             })
             .join(',')
         })
-
+        fields = fields.map((x) => '"' + x + '"')
         csv.unshift(fields.join(',')) // add header column
         csv = csv.join('\r\n')
 
