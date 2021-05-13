@@ -1,8 +1,11 @@
 export const state = () => ({
   generated: [],
+  dateRange: ['2021-05-10', '2021-05-20'],
   total: 218,
   data: [
     {
+      type: 'Radio',
+      state: 'Basic',
       q: 'What age group do you belong to?',
       options: ['17-20', '21-24', '25-28'],
       conditions: [
@@ -12,22 +15,8 @@ export const state = () => ({
       ],
     },
     {
-      q: 'Please identify your gender',
-      options: [
-        'Female',
-        'Male',
-        'Prefer not to say',
-        'Non-binary',
-        'Gender fluid',
-        '',
-      ],
-      conditions: [
-        {
-          result: [40, 40, 5, 3, 2],
-        },
-      ],
-    },
-    {
+      type: 'Radio',
+      state: 'Basic',
       q: 'Are you currently studying in Pakistan?',
       options: ['Yes', 'No'],
       conditions: [
@@ -36,208 +25,45 @@ export const state = () => ({
         },
       ],
     },
+
     {
-      q: 'What degree are you currently pursuing?',
-      options: ["Bachelor's", "Master's", 'Other'],
-      conditions: [
-        {
-          result: [85, 15, 0],
-        },
-      ],
-    },
-    {
+      type: 'Radio',
+      state: 'Conditional',
       q: "I want to return Ali's favour as soon as possible so I do not feel indebted to him. ",
       options: ['1', '2', '3', '4', '5'],
       conditions: [
         {
-          variable_id: 'Are you currently studying in Pakistan?',
-          lambda: (x) => x === 'Yes',
-          result: [35, 30, 15, 5, 15],
+          result: [10, 25, 35, 15, 15],
         },
         {
-          result: [10, 25, 35, 15, 15],
+          rules: [
+            {
+              variable_id: 'Are you currently studying in Pakistan?',
+              lambda: (x) => x === 'Yes',
+            },
+          ],
+          result: [35, 30, 15, 5, 15],
         },
       ],
     },
     {
+      type: 'Radio',
+      state: 'Conditional',
       q: 'When I do something extra for my peers, I normally expect them to return any favours I do for them right away.',
       options: ['1', '2', '3', '4', '5'],
       conditions: [
         {
-          variable_id: 'Are you currently studying in Pakistan?',
-          lambda: (x) => x === 'Yes',
-          result: [35, 30, 15, 5, 15],
-        },
-        {
           result: [10, 25, 35, 15, 15],
         },
-      ],
-    },
-    {
-      q: 'When Ali needs help, I will also help him for one hour to finish one assignment. ',
-      options: ['1', '2', '3', '4', '5'],
-      conditions: [
         {
-          variable_id: 'Are you currently studying in Pakistan?',
-          lambda: (x) => x === 'Yes',
-          result: [5, 10, 15, 30, 40],
-        },
-        {
-          result: [10, 25, 35, 15, 15],
-        },
-      ],
-    },
-    {
-      q: 'When exchanging academic assistance, I pay attention to what I received relative to what I offered.',
-      options: ['1', '2', '3', '4', '5'],
-      conditions: [
-        {
-          variable_id: 'Are you currently studying in Pakistan?',
-          lambda: (x) => x === 'Yes',
-          result: [5, 10, 15, 30, 40],
-        },
-        {
-          result: [10, 25, 35, 15, 15],
-        },
-      ],
-    },
-    {
-      q: 'I am more concerned about helping Ali finish his assignment than completing mine. ',
-      options: ['1', '2', '3', '4', '5'],
-      conditions: [
-        {
-          variable_id: 'Are you currently studying in Pakistan?',
-          lambda: (x) => x === 'Yes',
-          result: [5, 10, 15, 30, 40],
-        },
-        {
-          result: [10, 5, 25, 35, 25],
-        },
-      ],
-    },
-    {
-      q: "If necessary, I will put Ali's need to complete the assignment above my own.",
-      options: ['1', '2', '3', '4', '5'],
-      conditions: [
-        {
-          variable_id: 'Are you currently studying in Pakistan?',
-          lambda: (x) => x === 'Yes',
-          result: [5, 10, 15, 30, 40],
-        },
-        {
-          result: [10, 5, 25, 35, 25],
-        },
-      ],
-    },
-    {
-      q: 'While exchanging academic assistance, my peers and I try to do what is best for each other. ',
-      options: ['1', '2', '3', '4', '5'],
-      conditions: [
-        {
-          variable_id: 'Are you currently studying in Pakistan?',
-          lambda: (x) => x === 'Yes',
-          result: [5, 10, 15, 30, 40],
-        },
-        {
-          result: [10, 5, 25, 35, 25],
-        },
-      ],
-    },
-    {
-      q: 'While exchanging academic assistance, my peers and I try to do what is best for our own self interests. ',
-      options: ['1', '2', '3', '4', '5'],
-      conditions: [
-        {
-          variable_id: 'Are you currently studying in Pakistan?',
-          lambda: (x) => x === 'Yes',
+          rules: [
+            {
+              variable_id: 'Are you currently studying in Pakistan?',
+              lambda: (x) => x === 'Yes',
+            },
+          ],
+
           result: [35, 30, 15, 5, 15],
-        },
-        {
-          result: [10, 5, 25, 35, 25],
-        },
-      ],
-    },
-    {
-      q: "I can't wait for Ahmad to need my help one day, so that I can leave him hanging just like he did. ",
-      options: ['1', '2', '3', '4', '5'],
-      conditions: [
-        {
-          variable_id: 'Are you currently studying in Pakistan?',
-          lambda: (x) => x === 'Yes',
-          result: [5, 10, 15, 30, 40],
-        },
-        {
-          result: [5, 5, 5, 30, 55],
-        },
-      ],
-    },
-    {
-      q: 'I expect my peers to immediately deny me a favor if I have refused to help them recently instead of seeking retribution in the future.',
-      options: ['1', '2', '3', '4', '5'],
-      conditions: [
-        {
-          variable_id: 'Are you currently studying in Pakistan?',
-          lambda: (x) => x === 'Yes',
-          result: [5, 10, 15, 30, 40],
-        },
-        {
-          result: [5, 5, 5, 30, 55],
-        },
-      ],
-    },
-    {
-      q: 'I will also refuse to help Ahmad twice because he refused to help me twice. ',
-      options: ['1', '2', '3', '4', '5'],
-      conditions: [
-        {
-          variable_id: 'Are you currently studying in Pakistan?',
-          lambda: (x) => x === 'Yes',
-          result: [35, 30, 15, 5, 15],
-        },
-        {
-          result: [55, 25, 15, 3, 2],
-        },
-      ],
-    },
-    {
-      q: 'When someone refuses to exchange academic assistance, I pay attention to the size of the favor denied and intend to deny one of similar size.',
-      options: ['1', '2', '3', '4', '5'],
-      conditions: [
-        {
-          variable_id: 'Are you currently studying in Pakistan?',
-          lambda: (x) => x === 'Yes',
-          result: [35, 30, 15, 5, 15],
-        },
-        {
-          result: [55, 25, 15, 3, 2],
-        },
-      ],
-    },
-    {
-      q: 'I am more concerned about helping Ahmad finish his assignment than completing mine. ',
-      options: ['1', '2', '3', '4', '5'],
-      conditions: [
-        {
-          variable_id: 'Are you currently studying in Pakistan?',
-          lambda: (x) => x === 'Yes',
-          result: [35, 30, 15, 5, 15],
-        },
-        {
-          result: [55, 25, 15, 3, 2],
-        },
-      ],
-    },
-    {
-      q: "If necessary, I will put Ahmad's need to complete the assignment above my own by helping him.",
-      options: ['1', '2', '3', '4', '5'],
-      conditions: [
-        {
-          variable_id: 'Are you currently studying in Pakistan?',
-          lambda: (x) => x === 'Yes',
-          result: [35, 30, 15, 5, 15],
-        },
-        {
-          result: [55, 25, 15, 3, 2],
         },
       ],
     },
@@ -245,18 +71,91 @@ export const state = () => ({
 })
 /* eslint-disable */
 export const mutations = {
+  newDate(state, { dateRange }) {
+    if (dateRange.length == 2) {
+      state.dateRange = dateRange.sort((x, y) => new Date(x) - new Date(y))
+    } else state.dateRange = dateRange
+  },
+  deleteOption(state, { dataIndex, optionIndex }) {
+    this._vm.$delete(state.data[dataIndex].options, optionIndex)
+    state.data[dataIndex].conditions.forEach((cond) =>
+      this._vm.$delete(cond.result, optionIndex)
+    )
+  },
+  deleteQuestion(state, { dataIndex }) {
+    this._vm.$delete(state.data, dataIndex)
+  },
+  addNewQuestion(state) {
+    state.data.push({
+      type: 'Radio',
+      state: 'Basic',
+      q: 'Empty',
+      options: [],
+      conditions: [{ result: [] }],
+    })
+  },
+  updateQuestion(state, { dataIndex, question }) {
+    state.data[dataIndex].q = question
+  },
+  newRule(state, { dataIndex, conditionIndex, rule }) {
+    state.data[dataIndex].conditions[conditionIndex].rules.push(rule)
+  },
+  addCase(state, { dataIndex, rulesList }) {
+    const newResult = state.data[dataIndex].options.map((x) => 0)
+    state.data[dataIndex].conditions.push({
+      rules: rulesList,
+      result: newResult,
+    })
+  },
+  deleteCase(state, { dataIndex, conditionIndex }) {
+    this._vm.$delete(state.data[dataIndex].conditions, conditionIndex)
+  },
+  deleteRule(state, { dataIndex, conditionIndex, ruleIndex }) {
+    this._vm.$delete(
+      state.data[dataIndex].conditions[conditionIndex].rules,
+      ruleIndex
+    )
+  },
+  updatePerc(state, { conditionIndex, resultIndex, dataIndex, percentage }) {
+    this._vm.$set(
+      state.data[dataIndex].conditions[conditionIndex].result,
+      resultIndex,
+      parseInt(percentage)
+    )
+    // [resultIndex] =
+    //   parseInt(percentage)
+  },
+  addNewOption(state, { optionName, dataIndex }) {
+    state.data[dataIndex].options.push(optionName)
+    state.data[dataIndex].conditions.forEach((x) => x.result.push(0))
+  },
+  switch_state(state, i) {
+    if (state.data[i].state === 'Basic') {
+      state.data[i].state = 'Conditional'
+    } else {
+      state.data[i].state = 'Basic'
+    }
+  },
+  updateTotal(state, { total }) {
+    state.total = total
+  },
   generate(state) {
-    const conditionals = state.data.filter(
-      (x) => x.conditions !== undefined && x.conditions.length > 1
-    )
-    const infinte = state.data.filter((x) => x.conditions !== undefined)
-    const basics = state.data.filter(
-      (x) => x.conditions !== undefined && x.conditions.length === 1
-    )
+    let dateIndex = []
+
+    for (let i = 0; i < state.total; i++) {
+      dateIndex.push(
+        randomDate(new Date(state.dateRange[0]), new Date(state.dateRange[1]))
+      )
+    }
+    dateIndex = dateIndex.sort((x, y) => new Date(x) - new Date(y))
+
+    const conditionals = state.data.filter((x) => x.state !== 'Conditional')
+
+    const basics = state.data.filter((x) => x.state !== 'Basic')
     if (state.generated.length != state.total) {
       state.generated = []
       for (let i = 0; i < state.total; i++) {
-        state.generated.push({})
+        state.generated.push({ index: dateIndex[i] })
       }
     }
     // basics
@@ -267,7 +166,6 @@ export const mutations = {
       })
     })
     conditionals.forEach((cond) => {
-      // console.log(state.generated)
       const temp_generated = state.generated.slice(0)
       const index_groups = []
       for (let i = 0; i < cond.conditions.length - 1; i++) {
@@ -283,11 +181,16 @@ export const mutations = {
           (x, i) => (state.generated[x][cond.q] = cond.options[temp[i]])
         )
       })
-      console.log(state.generated)
     })
   },
 }
+function randomDate(start, end) {
+  return new Date(
+    start.getTime() + Math.random() * (end.getTime() - start.getTime())
+  )
+}
 
+randomDate(new Date(2012, 0, 1), new Date())
 function remaining(array) {
   const rem_index = []
   array.forEach((x, i) => {
@@ -296,7 +199,6 @@ function remaining(array) {
   return rem_index
 }
 function groupby(condition, array) {
-  console.log(condition)
   const met_index = []
   const unmet = []
   array.forEach((x, i) => {
@@ -314,8 +216,6 @@ function distribute(result, total) {
   let prev = -1
 
   props.forEach((x, ind) => {
-    // console.log('X')
-    // console.log(x + completed)
     for (let i = 0; i < x; i++) {
       index.push(ind)
     }
