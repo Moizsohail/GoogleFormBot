@@ -9,7 +9,7 @@
     "generate": "nuxt generate",
     "lint:js": "eslint --ext \".js,.vue\" --ignore-path .gitignore .",
     "deploy": "push-dir --dir=dist --branch=gh-pages --cleanup",
-    "commit": "git add . && git commit -m 'auto' && git push origin master",
+    "commit": "git add . && git commit -m 'auto' && git push origin master && push-dir --dir=dist --branch=gh-pages --cleanup && nuxt generate",
     "lint": "npm run lint:js"
   },
   "dependencies": {
