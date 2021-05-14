@@ -7,12 +7,11 @@ export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
   router: {
-    base: '/googleformbot/',
+    base: '/surveybot/',
   },
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    titleTemplate: '%s - googleformbot',
-    title: 'googleformbot',
+    title: 'SurveyBot',
     htmlAttrs: {
       lang: 'en',
     },
