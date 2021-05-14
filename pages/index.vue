@@ -5,7 +5,8 @@
         <div class="textbox mt-14">
           <p class="text-h3 title">Fake Survey Data Generator</p>
           <p class="text-subtitle-1">
-            Easily Generate Quantitative survey data in a few clicks
+            Tired of begging your friends to fill your survey? Worry not we have
+            an app for you.
           </p>
           <v-row class="ml-0 mt-2">
             <v-btn color="primary" @click="$router.push('editor')"
