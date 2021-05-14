@@ -30,7 +30,9 @@
                     label="Question"
                     v-model="newQuestion"
                     @click.stop
-                    @keyup.prevent="doneEditingQuestion(i)"
+                    @keyup.prevent="
+                      (event) => doneEditingQuestion({ event, index: i })
+                    "
                   ></v-text-field>
                   <template v-slot:actions>
                     <v-btn
@@ -44,7 +46,7 @@
                     <v-btn
                       v-if="editorQ === i"
                       class="upright"
-                      @click.stop="doneEditingQuestion(i)"
+                      @click.stop="doneEditingQuestion({ index: i })"
                       depressed
                       icon
                       text
@@ -370,12 +372,14 @@ export default {
       this.newQuestion = this.$store.state.data[i].q
       this.editorQ = i
     },
-    doneEditingQuestion(i) {
-      this.$store.commit('updateQuestion', {
-        question: this.newQuestion,
-        dataIndex: i,
-      })
-      this.editorQ = -1
+    doneEditingQuestion({ event, index }) {
+      if (event === undefined || event.code === 'Enter') {
+        this.$store.commit('updateQuestion', {
+          question: this.newQuestion,
+          dataIndex: index,
+        })
+        this.editorQ = -1
+      }
     },
     newCaseOpen() {
       this.dialog = true
