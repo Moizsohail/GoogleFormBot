@@ -373,7 +373,7 @@ export default {
       this.editorQ = i
     },
     doneEditingQuestion({ event, index }) {
-      if (event === undefined || event.code === 'Enter') {
+      if (event === undefined || event.key === 'Enter') {
         this.$store.commit('updateQuestion', {
           question: this.newQuestion,
           dataIndex: index,
