@@ -181,7 +181,7 @@ export const mutations = {
         index_groups.push(index)
       }
       state.generated[cond.q] = []
-      index_groups.push(remaining(temp_generated))
+      index_groups.unshift(remaining(temp_generated))
       index_groups.forEach((indexes, i) => {
         const temp = distribute(cond.conditions[i].result, indexes.length)
 
