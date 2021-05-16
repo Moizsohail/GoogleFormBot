@@ -398,6 +398,7 @@ export default {
     generate() {
       if (this.$refs.form.validate()) {
         this.$store.commit('generate')
+        return
         const json = this.$store.state.generated
         let fields = Object.keys(json[0])
         // console.log(fields)

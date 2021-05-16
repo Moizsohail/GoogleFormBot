@@ -149,9 +149,9 @@ export const mutations = {
     }
     dateIndex = dateIndex.sort((x, y) => new Date(x) - new Date(y))
 
-    const conditionals = state.data.filter((x) => x.state !== 'Conditional')
+    const conditionals = state.data.filter((x) => x.state === 'Conditional')
 
-    const basics = state.data.filter((x) => x.state !== 'Basic')
+    const basics = state.data.filter((x) => x.state === 'Basic')
     if (state.generated.length != state.total) {
       state.generated = []
       for (let i = 0; i < state.total; i++) {
@@ -165,10 +165,11 @@ export const mutations = {
         state.generated[i][basic.q] = basic.options[x]
       })
     })
+
     conditionals.forEach((cond) => {
       const temp_generated = state.generated.slice(0)
       const index_groups = []
-      for (let i = 0; i < cond.conditions.length - 1; i++) {
+      for (let i = 1; i < cond.conditions.length; i++) {
         const index = groupby(cond.conditions[i], temp_generated)
         index_groups.push(index)
       }
@@ -190,7 +191,6 @@ function randomDate(start, end) {
   )
 }
 
-randomDate(new Date(2012, 0, 1), new Date())
 function remaining(array) {
   const rem_index = []
   array.forEach((x, i) => {
@@ -198,11 +198,17 @@ function remaining(array) {
   })
   return rem_index
 }
+function lambdaCheck(rulesList, x) {
+  return rulesList.reduce(
+    (prev, rule) => rule.lambda(x[rule.variable_id]) && prev,
+    true
+  )
+}
 function groupby(condition, array) {
   const met_index = []
   const unmet = []
   array.forEach((x, i) => {
-    if (array[i] != undefined && condition.lambda(x[condition.variable_id])) {
+    if (array[i] != undefined && lambdaCheck(condition.rules, x)) {
       met_index.push(i)
       array[i] = undefined
     }
