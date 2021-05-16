@@ -398,19 +398,19 @@ export default {
     generate() {
       if (this.$refs.form.validate()) {
         this.$store.commit('generate')
-        downloadObjectAsJson(this.$store.state.data, 'a.txt')
-        function downloadObjectAsJson(exportObj, exportName) {
-          var dataStr =
-            'data:text/json;charset=utf-8,' +
-            encodeURIComponent(JSON.stringify(exportObj))
-          var downloadAnchorNode = document.createElement('a')
-          downloadAnchorNode.setAttribute('href', dataStr)
-          downloadAnchorNode.setAttribute('download', exportName + '.json')
-          document.body.appendChild(downloadAnchorNode) // required for firefox
-          downloadAnchorNode.click()
-          downloadAnchorNode.remove()
-        }
-        return
+        // downloadObjectAsJson(this.$store.state.data, 'a.txt')
+        // function downloadObjectAsJson(exportObj, exportName) {
+        //   var dataStr =
+        //     'data:text/json;charset=utf-8,' +
+        //     encodeURIComponent(JSON.stringify(exportObj))
+        //   var downloadAnchorNode = document.createElement('a')
+        //   downloadAnchorNode.setAttribute('href', dataStr)
+        //   downloadAnchorNode.setAttribute('download', exportName + '.json')
+        //   document.body.appendChild(downloadAnchorNode) // required for firefox
+        //   downloadAnchorNode.click()
+        //   downloadAnchorNode.remove()
+        // }
+        // return
         const json = this.$store.state.generated
         let fields = Object.keys(json[0])
         // console.log(fields)
