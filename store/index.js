@@ -172,9 +172,7 @@ export const mutations = {
       })
     })
     const temp = state.generated.slice()
-    // console.log(temp[0])
-    console.log(groupby(conditionals[0].conditions[1], temp))
-    console.log(remaining(temp))
+
     conditionals.forEach((cond) => {
       const temp_generated = state.generated.slice(0)
       const index_groups = []
@@ -214,7 +212,6 @@ function lambdaCheck(rulesList, x) {
   )
 }
 function groupby(condition, array) {
-  console.log(condition)
   const met_index = []
   const unmet = []
   array.forEach((x, i) => {
