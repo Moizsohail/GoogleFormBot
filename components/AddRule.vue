@@ -11,6 +11,9 @@
         <v-container>
           <v-row>
             <v-col cols="12" sm="6">
+              <v-subheader v-text="'Select A Basic Variable'"></v-subheader>
+            </v-col>
+            <v-col cols="12" sm="6">
               <v-select
                 v-model="variable_select"
                 :items="basic_variables"
@@ -18,25 +21,39 @@
                 required
               ></v-select>
             </v-col>
+            <v-col v-if="variable_select.length > 0" cols="12" sm="6">
+              <v-subheader
+                v-text="'Select the options that should trigger this case'"
+              ></v-subheader>
+            </v-col>
             <v-col cols="12" sm="6">
+              <v-select
+                v-if="variable_select.length > 0"
+                multiple
+                v-model="values"
+                :items="
+                  $store.state.data.filter((x) => x.q == variable_select)[0]
+                    .options
+                "
+              />
+            </v-col>
+            <!-- <v-col cols="12" sm="6">
               <v-select
                 v-model="function_select"
                 :items="functions.map((x) => x.name)"
                 label="Function"
                 required
               ></v-select>
-            </v-col>
-            <v-col
+            </v-col> -->
+            <!-- <v-col
               ><v-text-field label="Value" v-model="value"></v-text-field
-            ></v-col>
+            ></v-col> -->
           </v-row>
         </v-container>
       </v-card-text>
       <v-card-actions>
         <v-spacer></v-spacer>
-        <v-btn color="blue darken-1" text @click="dialog = false">
-          Close
-        </v-btn>
+        <v-btn color="blue darken-1" text @click="close"> Close </v-btn>
         <v-btn color="blue darken-1" text @click="save"> Save </v-btn>
       </v-card-actions>
     </v-card>
@@ -49,14 +66,7 @@ export default {
     dialog: false,
     variable_select: '',
     function_select: '',
-    value: '',
-    functions: [
-      { name: '==', lambda: (y) => (x) => x === y },
-      { name: '>', lambda: (y) => (x) => x > y },
-      { name: '<', lambda: (y) => (x) => x < y },
-      { name: '>=', lambda: (y) => (x) => x >= y },
-      { name: '<=', lambda: (y) => (x) => x <= y },
-    ],
+    values: [],
   }),
 
   computed: {
@@ -67,21 +77,19 @@ export default {
     },
   },
   methods: {
+    close() {
+      this.variable_select = ''
+      this.values = []
+      this.dialog = false
+    },
     save() {
-      const lambdas = this.functions.filter(
-        (x) => x.name === this.function_select
-      )
-      if (
-        lambdas.length === 1 &&
-        this.value.length > 0 &&
-        this.variable_select !== ''
-      ) {
+      if (this.values.length > 0 && this.variable_select !== '') {
         this.$emit('newRule', {
           variable_id: this.variable_select,
-          lambda: lambdas[0].lambda(this.value),
+          values: this.values,
         })
-        this.dialog = false
       }
+      this.close()
     },
   },
 }

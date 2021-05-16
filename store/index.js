@@ -1,5 +1,12 @@
 export const state = () => ({
   generated: [],
+  // functions: [
+  //   { name: '==', lambda: (y) => (x) => x === y },
+  //   { name: '>', lambda: (y) => (x) => x > y },
+  //   { name: '<', lambda: (y) => (x) => x < y },
+  //   { name: '>=', lambda: (y) => (x) => x >= y },
+  //   { name: '<=', lambda: (y) => (x) => x <= y },
+  // ],
   dateRange: ['2021-05-10', '2021-05-20'],
   total: 218,
   data: [
@@ -39,7 +46,7 @@ export const state = () => ({
           rules: [
             {
               variable_id: 'Are you currently studying in Pakistan?',
-              lambda: (x) => x === 'Yes',
+              values: ['Yes'],
             },
           ],
           result: [35, 30, 15, 5, 15],
@@ -59,7 +66,7 @@ export const state = () => ({
           rules: [
             {
               variable_id: 'Are you currently studying in Pakistan?',
-              lambda: (x) => x === 'Yes',
+              values: ['Yes'],
             },
           ],
 
@@ -141,7 +148,6 @@ export const mutations = {
   },
   generate(state) {
     let dateIndex = []
-
     for (let i = 0; i < state.total; i++) {
       dateIndex.push(
         randomDate(new Date(state.dateRange[0]), new Date(state.dateRange[1]))
@@ -165,7 +171,10 @@ export const mutations = {
         state.generated[i][basic.q] = basic.options[x]
       })
     })
-
+    const temp = state.generated.slice()
+    // console.log(temp[0])
+    console.log(groupby(conditionals[0].conditions[1], temp))
+    console.log(remaining(temp))
     conditionals.forEach((cond) => {
       const temp_generated = state.generated.slice(0)
       const index_groups = []
@@ -200,11 +209,12 @@ function remaining(array) {
 }
 function lambdaCheck(rulesList, x) {
   return rulesList.reduce(
-    (prev, rule) => rule.lambda(x[rule.variable_id]) && prev,
+    (prev, rule) => rule.values.includes(x[rule.variable_id]) && prev,
     true
   )
 }
 function groupby(condition, array) {
+  console.log(condition)
   const met_index = []
   const unmet = []
   array.forEach((x, i) => {

@@ -23,7 +23,7 @@
 
                           <v-list-item-subtitle
                             class="text--primary"
-                            v-text="cond.lambda"
+                            v-text="cond.values"
                           ></v-list-item-subtitle>
                         </v-list-item-content>
 
